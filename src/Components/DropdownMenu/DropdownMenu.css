@@ -1,0 +1,30 @@
+.dropdown-menu {
+    background-color: aquamarine;
+    max-width: 10rem;
+}
+
+.dropdown-header {
+    background-color: cadetblue;
+}
+
+.dropdown-header img {
+    width: 1rem;
+}
+
+.dropdown-body {
+    animation-duration: .3s;
+    animation-name: showDropdown;
+    animation-fill-mode: forwards;
+}
+
+@keyframes showDropdown {
+    from {
+        opacity: 0;
+        display: none;
+    }
+
+    to {
+        opacity: 1;
+        display: flex;
+    }
+}

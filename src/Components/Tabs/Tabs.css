@@ -1,0 +1,3 @@
+.tabs div[data-selected=true] {
+    border: 2px solid red;
+}
