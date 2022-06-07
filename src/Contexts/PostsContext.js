@@ -1,8 +1,7 @@
 import { useContext, createContext } from 'react'
-import { useEffect, useState } from 'react';
-import axios from 'axios'
 import { useOptions } from './OptionsContext';
-import { useLocalStorage } from '../CustomHooks/useLocalStorage';
+import useLocalStorage from '../CustomHooks/useLocalStorage';
+import usePostsSearch from '../CustomHooks/usePostsSearch';
 
 const PostsContext = createContext()
 
@@ -11,33 +10,15 @@ export const usePosts = () => {
 }
 
 export const PostsProvider = ({ children }) => {
-    const { selectedQueryFilter } = useOptions()
-    const [posts, setPosts] = useState([])
-    const [favePosts, setFavePosts] = useLocalStorage('favePosts', [])
-
-    useEffect(() => {
-        axios.get(`https://hn.algolia.com/api/v1/search_by_date?query=${selectedQueryFilter}&page=0`)
-            .then(
-                res => {
-                    let results = res.data.hits
-                    let filteredPosts = filterPosts(results)
-                    let checkedPosts = checkLikedPosts(filteredPosts)
-                    setPosts(checkedPosts)
-                }
-            )
-    }, [selectedQueryFilter])
-
-    const filterPosts = (posts) => {
-        let filteredPosts = posts.filter(post => post.story_title && post.author && post.story_url && post.created_at)
-        return filteredPosts
-    }
-
-    const checkLikedPosts = (filteredPosts) => {
-        let checkedPosts = filteredPosts.map(post => {
-            return { ...post, liked: favePosts.some(e => e.objectID === post.objectID) }
-        })
-        return checkedPosts
-    }
+    const {
+        posts,
+        setPosts,
+        favePosts,
+        setFavePosts,
+        hasMore,
+        error,
+        loading
+    } = usePostsSearch()
 
     const addFavePost = (post) => {
         setFavePosts([...favePosts, { ...post, liked: true }])

@@ -1,5 +1,5 @@
-import { useContext, createContext } from 'react'
-import { useLocalStorage } from '../CustomHooks/useLocalStorage'
+import { useContext, createContext, useState } from 'react'
+import useLocalStorage from '../CustomHooks/useLocalStorage'
 import angularIcon from '../Assets/image-138.png'
 import reactIcon from '../Assets/image-140.png'
 import vuejsIcon from '../Assets/image-141.png'
@@ -31,20 +31,23 @@ export const DROPDOWN_OPTIONS = [
 ]
 
 export const OptionsProvider = ({ children }) => {
-    const [selectedQueryFilter, setSelectedQueryFilter] = useLocalStorage('selectedQueryFilter', null)
+    const [pageNumber, setPageNumber] = useState(0)
+    const [query, setQuery] = useLocalStorage('query', null)
     const [selectedTab, setSelectedTab] = useLocalStorage('selectedTab', TAB_1)
 
     const changeTab = (tab) => {
         setSelectedTab(tab)
     }
     const changeQueryFilter = (option) => {
-        setSelectedQueryFilter(option)
+        setQuery(option)
+        setPageNumber(0)
     }
 
     return (
         <OptionsContext.Provider value={{
-            selectedQueryFilter,
+            query,
             selectedTab,
+            pageNumber,
             changeTab,
             changeQueryFilter
         }}>

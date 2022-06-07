@@ -25,7 +25,7 @@ const Card = ({ post }) => {
         <div className="Card">
             <h2>{post.story_title}</h2>
             <h3>{post.author}</h3>
-            <h5>hace: {milliseconds}</h5>
+            <h5>hace: {post.created_at}</h5>
             <p>{post.story_url}</p>
             <button>
                 <img src={post.liked ? filledHeart : heart} alt="" onClick={() => handleLikeButton()} />
