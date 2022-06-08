@@ -13,18 +13,6 @@
 
 .dropdown-body {
     animation-duration: .3s;
-    animation-name: showDropdown;
+    animation-name: appear;
     animation-fill-mode: forwards;
-}
-
-@keyframes showDropdown {
-    from {
-        opacity: 0;
-        display: none;
-    }
-
-    to {
-        opacity: 1;
-        display: flex;
-    }
 }
