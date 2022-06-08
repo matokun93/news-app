@@ -20,7 +20,7 @@ export const PostsProvider = ({ children }) => {
 
     const addFavePost = (post) => {
         setFavePosts(prevFavePosts => {
-            return [...prevFavePosts, { ...post, liked: true }]
+            return [{ ...post, liked: true }, ...prevFavePosts]
         })
         setPosts(
             posts.map(item => {
