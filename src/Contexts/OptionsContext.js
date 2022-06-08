@@ -38,7 +38,7 @@ export const OptionsProvider = ({ children }) => {
     const changeTab = (tab) => {
         setSelectedTab(tab)
     }
-    const changeQueryFilter = (option) => {
+    const changeQuery = (option) => {
         setQuery(option)
         setPageNumber(0)
     }
@@ -48,8 +48,9 @@ export const OptionsProvider = ({ children }) => {
             query,
             selectedTab,
             pageNumber,
+            setPageNumber,
             changeTab,
-            changeQueryFilter
+            changeQuery
         }}>
             {children}
         </OptionsContext.Provider>

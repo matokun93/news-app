@@ -5,7 +5,7 @@ import './DropdownMenu.css'
 import arrowDown from '../../Assets/angle-down-solid.svg'
 
 const DropdownMenu = () => {
-    const { changeQueryFilter, selectedQueryFilter } = useOptions()
+    const { query, changeQuery } = useOptions()
     const [visibleDropdown, setVisibleDropdown] = useState(false)
     const dropdownMenuRef = useRef()
 
@@ -19,7 +19,7 @@ const DropdownMenu = () => {
         setVisibleDropdown(false)
     }
     const handleSelect = (option) => {
-        changeQueryFilter(option)
+        changeQuery(option)
         hideDropdown()
     }
 
@@ -27,7 +27,7 @@ const DropdownMenu = () => {
         <div className="dropdown-menu" ref={dropdownMenuRef}>
             <div className="dropdown-header" onClick={() => toggleDropdown()}>
                 {
-                    selectedQueryFilter ?? 'Select your news'
+                    query ?? 'Select your news'
                 }
                 <img src={arrowDown} alt="" />
             </div>

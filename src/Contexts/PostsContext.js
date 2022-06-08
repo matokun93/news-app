@@ -1,6 +1,4 @@
 import { useContext, createContext } from 'react'
-import { useOptions } from './OptionsContext';
-import useLocalStorage from '../CustomHooks/useLocalStorage';
 import usePostsSearch from '../CustomHooks/usePostsSearch';
 
 const PostsContext = createContext()
@@ -21,7 +19,9 @@ export const PostsProvider = ({ children }) => {
     } = usePostsSearch()
 
     const addFavePost = (post) => {
-        setFavePosts([...favePosts, { ...post, liked: true }])
+        setFavePosts(prevFavePosts => {
+            return [...prevFavePosts, { ...post, liked: true }]
+        })
         setPosts(
             posts.map(item => {
                 if (item.objectID === post.objectID) {
@@ -50,6 +50,9 @@ export const PostsProvider = ({ children }) => {
             favePosts,
             addFavePost,
             removeFavePost,
+            hasMore,
+            loading,
+            error
         }}>
             {children}
         </PostsContext.Provider>
