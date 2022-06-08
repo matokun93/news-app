@@ -39,8 +39,10 @@ export const OptionsProvider = ({ children }) => {
         setSelectedTab(tab)
     }
     const changeQuery = (option) => {
-        setQuery(option)
-        setPageNumber(0)
+        if (query !== option) {
+            setQuery(option)
+            setPageNumber(0)
+        }
     }
 
     return (

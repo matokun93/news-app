@@ -16,27 +16,28 @@ const usePostsSearch = () => {
         return filteredPosts
     }
 
-    const checkLikedPosts = useCallback(
-        (filteredPosts) => {
-            let checkedPosts = filteredPosts.map(post => {
-                return {
-                    objectID: post.objectID,
-                    story_title: post.story_title,
-                    author: post.author,
-                    url: post.story_url,
-                    created_at: post.created_at,
-                    liked: favePosts.some(e => e.objectID === post.objectID)
-                }
-            })
-            return checkedPosts
-        }, [favePosts]
-    )
+    const checkLikedPosts = useCallback((filteredPosts) => {
+        let checkedPosts = filteredPosts.map(post => {
+            return {
+                objectID: post.objectID,
+                story_title: post.story_title,
+                author: post.author,
+                url: post.story_url,
+                created_at: post.created_at,
+                liked: favePosts.some(e => e.objectID === post.objectID)
+            }
+        })
+        return checkedPosts
+    }, [])
 
     useEffect(() => {
+        console.log('entro al usefefct peque;o');
         setPosts([])
+        console.log('se seteo el posts en vacio');
     }, [query])
 
     useEffect(() => {
+        console.log('entro al useffect grande');
         setLoading(true)
         setError(false)
         let cancel
@@ -59,7 +60,8 @@ const usePostsSearch = () => {
             setError(true)
         })
         return () => cancel()
-    }, [query, pageNumber])
+        console.log('se busco la nueva data');
+    }, [pageNumber, query])
 
     return { posts, setPosts, favePosts, setFavePosts, hasMore, loading, error, }
 }
