@@ -19,6 +19,7 @@
 
 .nav-container img {
     width: clamp(120px, 20vw, 208px);
+    fill: aqua;
 }
 
 .theme-button {

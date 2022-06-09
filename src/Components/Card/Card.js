@@ -5,7 +5,6 @@ import filledHeartIcon from '../../Assets/iconmonstr-favorite-3.svg'
 import timeIcon from '../../Assets/iconmonstr-time-2.svg'
 import './Card.css'
 
-
 const Card = ({ post }) => {
     const { addFavePost, removeFavePost } = usePosts()
     const { timePassed } = useCalculateTime(post.created_at)
@@ -24,6 +23,9 @@ const Card = ({ post }) => {
                     <h1>{post.story_title}</h1>
                 </div>
             </a>
+            <div className='heart-image'>
+
+            </div>
             <button onClick={() => handleLikeButton()}>
                 <img src={post.liked ? filledHeartIcon : heartIcon} alt='heart-icon' />
             </button>

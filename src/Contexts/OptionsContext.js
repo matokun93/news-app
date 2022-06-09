@@ -1,8 +1,8 @@
 import { useContext, createContext, useState } from 'react'
 import useLocalStorage from '../CustomHooks/useLocalStorage'
-import angularIcon from '../Assets/image-138.png'
-import reactIcon from '../Assets/image-140.png'
-import vuejsIcon from '../Assets/image-141.png'
+import angularIcon from '../Assets/image-138@3x.png'
+import reactIcon from '../Assets/image-140@3x.png'
+import vuejsIcon from '../Assets/image-141@3x.png'
 
 const OptionsContext = createContext()
 

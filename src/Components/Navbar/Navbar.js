@@ -1,7 +1,9 @@
 import useDarkMode from '../../CustomHooks/useDarkMode'
 import './Navbar.css'
 import logo from '../../Assets/hacker-news.svg'
+import logoDark from '../../Assets/hacker-news-dark.svg'
 import moon from '../../Assets/moon-solid.svg'
+import moonDark from '../../Assets/moon-solid-dark.svg'
 
 const Navbar = () => {
     const [darkMode, setDarkMode] = useDarkMode()
@@ -13,9 +15,9 @@ const Navbar = () => {
     return (
         <div className="nav-container">
             <nav>
-                <img src={logo} alt="logo" />
+                <img src={darkMode ? logoDark : logo} alt="logo" />
                 <div className="theme-button">
-                    <img src={moon} alt='moon-icon' />
+                    <img src={darkMode ? moonDark : moon} alt='moon-icon' />
                     <div className="slider-container" onClick={() => changeTheme()}>
                         <div className={darkMode === false ? 'slider' : 'slider slider-right'}></div>
                     </div>
