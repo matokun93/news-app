@@ -1,8 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Roboto', sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,6 +29,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Lights colors */
+:root {
+  --clr-background-primary: #fcfcfc;
+  --clr-background-secondary: #fff;
+  --clr-background-hovered: #eaeaea;
+  --clr-background-gradient-primary: #ececec;
+  --clr-background-gradient-secondary: #fff;
+  --clr-background-button-primary: #6060600f;
+  --clr-background-button-hover: #6060601e;
+  --clr-border-primary: #979797cc;
+  --clr-border-secondary: #d6d6d6;
+  --clr-border-third: #2e2e2e;
+  --clr-border-active: #1797ff;
+  --clr-font-primary: #6b6b6b;
+  --clr-font-secondary: #767676;
+  --clr-font-third: #d6d6d6;
+  --clr-font-fourth: #606060;
+  --clr-font-active: #1797ff;
+}
+
+/* Dark colors */
+.dark {}
 
 /* Animations */
 @keyframes appear {

@@ -3,6 +3,7 @@ import { usePosts } from "../../../Contexts/PostsContext"
 import { useOptions } from "../../../Contexts/OptionsContext"
 import Card from '../../Card/Card'
 import DropdownMenu from '../../DropdownMenu/DropdownMenu'
+import './LayoutPosts.css'
 
 const LayoutPosts = () => {
     const { posts, hasMore, loading, error } = usePosts()
@@ -22,20 +23,22 @@ const LayoutPosts = () => {
 
     return (
         <>
-            <DropdownMenu />
-            <div className="layout">
-                {
-                    posts.map((post, index) =>
-                        <div key={post.objectID} ref={posts.length === index + 1 ? lastPostElementRef : null} >
-                            <Card
-                                post={post}
-                            />
-                        </div>
-                    )
-                }
+            <div className="layout-container">
+                <DropdownMenu />
+                <div className="layout">
+                    {
+                        posts.map((post, index) =>
+                            <div key={post.objectID} ref={posts.length === index + 1 ? lastPostElementRef : null} >
+                                <Card
+                                    post={post}
+                                />
+                            </div>
+                        )
+                    }
+                </div>
+                <div className="loading"> {loading && <h3>Loading news...</h3>}</div>
+                <div className="error"> {error && <h3>Error</h3>}</div>
             </div>
-            <div className="loading"> {loading && <h3>Loading news...</h3>}</div>
-            <div className="error"> {error && <h3>Error</h3>}</div>
         </>
     )
 }

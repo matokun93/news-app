@@ -1,0 +1,31 @@
+.layout-container {
+    width: 100%;
+    max-width: 80%;
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(30px, 6vw, 4rem);
+    position: relative;
+}
+
+.layout {
+    margin-top: clamp(50px, 8vw, 4rem);
+    width: 100%;
+    display: grid;
+    gap: 30px;
+    column-gap: min(40px, 3%);
+    align-content: center;
+    align-self: center;
+}
+
+@media (min-width: 780px) {
+    .layout {
+        grid-template-columns: repeat(auto-fit, minmax(max(300px, calc(100% / 3)), 1fr));
+    }
+}
+
+@media (max-width: 780px) {
+    .layout-container {
+        width: min(500px, 98%);
+        max-width: 100%;
+    }
+}

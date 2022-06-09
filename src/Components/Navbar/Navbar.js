@@ -3,9 +3,11 @@ import logo from '../../Assets/hacker-news.svg'
 
 const Navbar = () => {
     return (
-        <nav className="nav-container">
-            <img src={logo} alt="" />
-        </nav>
+        <div className="nav-container">
+            <nav>
+                <img src={logo} alt="logo" />
+            </nav>
+        </div>
     )
 }
 

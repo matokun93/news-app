@@ -25,7 +25,7 @@ const DropdownMenu = () => {
 
     return (
         <div className="dropdown-menu" ref={dropdownMenuRef}>
-            <div className="dropdown-header" onClick={() => toggleDropdown()}>
+            <div className="header" onClick={() => toggleDropdown()}>
                 {
                     query ?? 'Select your news'
                 }
@@ -33,9 +33,9 @@ const DropdownMenu = () => {
             </div>
             {
                 visibleDropdown
-                    ? <ul className="dropdown-body">
+                    ? <ul className="body">
                         {DROPDOWN_OPTIONS.map(option =>
-                            <li className="dropdown-option" key={option.id} onClick={() => handleSelect(option.id)}>
+                            <li className="option" key={option.id} onClick={() => handleSelect(option.id)}>
                                 <img src={option.icon} alt="" />
                                 {option.name}
                             </li>

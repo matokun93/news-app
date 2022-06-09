@@ -20,7 +20,7 @@ const Card = ({ post }) => {
         <div className="card">
             <a href={post.url} target='_blank' rel="noreferrer">
                 <div className="body">
-                    <p><img src={timeIcon} alt='time-icon' />{timePassed.time}{timePassed.unit} ago by {post.author}</p>
+                    <p><img src={timeIcon} alt='time-icon' />{timePassed.time} {timePassed.unit} ago by {post.author}</p>
                     <h1>{post.story_title}</h1>
                 </div>
             </a>

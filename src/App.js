@@ -5,11 +5,11 @@ import Layouts from './Components/Layouts/Layouts'
 
 const App = () => {
   return (
-    <>
+    <div className='App'>
       <NavBar />
       <Tabs />
       <Layouts />
-    </>
+    </div>
   )
 }
 

@@ -1,3 +1,35 @@
+.tabs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabs div {
+    width: clamp(80px, 12vw, 98px);
+    font-size: clamp(12px, 1.4vw, 16px);
+    padding: 7px 0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--clr-border-secondary);
+    border-radius: 2px;
+    text-align: center;
+    color: var(--clr-font-fourth);
+    cursor: pointer;
+}
+
+.tabs div:hover {
+    opacity: .8;
+}
+
 .tabs div[data-selected=true] {
-    border: 2px solid red;
+    border: 1px solid var(--clr-border-active);
+    color: var(--clr-font-active);
+    cursor: default;
+}
+
+.tabs div[data-selected=true]:hover {
+    opacity: 1;
 }
