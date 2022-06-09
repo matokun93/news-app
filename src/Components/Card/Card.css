@@ -10,6 +10,12 @@
 
     animation-duration: .5s;
     animation-name: appear;
+}
+
+.faded {
+    pointer-events: none;
+    animation-duration: .2s;
+    animation-name: disappear;
     animation-fill-mode: forwards;
 }
 

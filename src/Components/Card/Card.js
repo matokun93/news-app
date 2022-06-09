@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { usePosts } from '../../Contexts/PostsContext'
+import { TAB_2, useOptions } from '../../Contexts/OptionsContext'
 import useCalculateTime from '../../CustomHooks/useCalculateTime'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
@@ -8,15 +10,24 @@ import './Card.css'
 const Card = ({ post }) => {
     const { addFavePost, removeFavePost } = usePosts()
     const { timePassed } = useCalculateTime(post.created_at)
+    const { selectedTab } = useOptions()
+    const [postLiked, setPostLiked] = useState(post.liked)
 
     const handleLikeButton = () => {
-        post.liked
-            ? removeFavePost(post)
-            : addFavePost(post)
+        if (post.liked) {
+            setPostLiked(false)
+            selectedTab === TAB_2
+                ? setTimeout(() => {
+                    removeFavePost(post)
+                }, 200)
+                : removeFavePost(post)
+            return
+        }
+        addFavePost(post)
     }
 
     return (
-        <div className="card">
+        <div className={!postLiked && selectedTab === TAB_2 ? 'card faded' : 'card'}>
             <a href={post.url} target='_blank' rel="noreferrer">
                 <div className="body">
                     <p>
@@ -28,13 +39,10 @@ const Card = ({ post }) => {
                     <h1>{post.story_title}</h1>
                 </div>
             </a>
-            <div className='heart-image'>
-
-            </div>
             <button onClick={() => handleLikeButton()}>
-                <div className='heart-icon'>
+                <span className='heart-icon'>
                     <FontAwesomeIcon icon={post.liked ? faHeart : faHeartRegular} />
-                </div>
+                </span>
             </button>
         </div>
     )

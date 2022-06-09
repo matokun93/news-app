@@ -1,6 +1,5 @@
 import { usePosts } from "../../../Contexts/PostsContext"
 import Card from '../../Card/Card'
-import './LayoutFavePosts.css'
 
 const LayoutFavePosts = () => {
     const { favePosts } = usePosts()

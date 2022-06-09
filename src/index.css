@@ -92,3 +92,15 @@ code {
     display: flex;
   }
 }
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+    display: flex;
+  }
+
+  to {
+    opacity: 0;
+    display: none;
+  }
+}

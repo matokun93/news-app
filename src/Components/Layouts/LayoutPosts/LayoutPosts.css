@@ -39,7 +39,7 @@
 
 @media (min-width: 780px) {
     .layout {
-        grid-template-columns: repeat(auto-fit, minmax(max(300px, calc(100% / 3)), 1fr));
+        grid-template-columns: 1fr 1fr;
     }
 }
 
