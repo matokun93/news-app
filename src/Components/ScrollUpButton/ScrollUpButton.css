@@ -4,9 +4,10 @@ button.scroll-up {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--clr-scroll-button);
     border: none;
-    box-shadow: 0 2px 10px 0 #dad8d8;
+    cursor: pointer;
+    box-shadow: 0 2px 10px 0 var(--clr-shadows);
     bottom: clamp(25px, 5vw, 50px);
     right: clamp(10px, 5vw, 50px);
     height: clamp(30px, 10vw, 50px);
@@ -18,7 +19,7 @@ button.scroll-up {
 }
 
 button.scroll-up:hover {
-    background-color: rgb(245, 245, 245);
+    background-color: var(--clr-scroll-button-hover);
 }
 
 button.scroll-up img {

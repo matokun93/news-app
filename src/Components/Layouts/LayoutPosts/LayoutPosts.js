@@ -36,8 +36,9 @@ const LayoutPosts = () => {
                         )
                     }
                 </div>
-                <div className="loading"> {loading && <h3>Loading news...</h3>}</div>
-                <div className="error"> {error && <h3>Error</h3>}</div>
+
+                {loading && <div className='loading'>Loading news...</div>}
+                {error && <div className='error'>{error}</div>}
             </div>
         </>
     )

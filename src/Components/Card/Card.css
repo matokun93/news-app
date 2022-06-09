@@ -13,6 +13,10 @@
     opacity: .6;
 }
 
+.card a {
+    width: 100%;
+}
+
 .card .body {
     height: 100%;
     width: 100%;

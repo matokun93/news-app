@@ -16,7 +16,7 @@
     border: 1px solid var(--clr-border-secondary);
     border-radius: 2px;
     text-align: center;
-    color: var(--clr-font-fourth);
+    color: var(--clr-font-third);
     cursor: pointer;
 }
 
