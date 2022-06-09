@@ -7,6 +7,10 @@
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+
+    animation-duration: .5s;
+    animation-name: appear;
+    animation-fill-mode: forwards;
 }
 
 .card:hover {

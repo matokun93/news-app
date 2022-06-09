@@ -6,6 +6,10 @@
     cursor: pointer;
     font-size: clamp(11px, 1.4vw, 14px);
     z-index: 2;
+
+    animation-duration: .5s;
+    animation-name: appear;
+    animation-fill-mode: forwards;
 }
 
 .dropdown-menu .header {
