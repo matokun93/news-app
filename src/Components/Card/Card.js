@@ -1,8 +1,8 @@
 import { usePosts } from '../../Contexts/PostsContext'
 import useCalculateTime from '../../CustomHooks/useCalculateTime'
-import heartIcon from '../../Assets/iconmonstr-favorite-2.svg'
-import filledHeartIcon from '../../Assets/iconmonstr-favorite-3.svg'
-import timeIcon from '../../Assets/iconmonstr-time-2.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart as faHeartRegular, faClockFour } from '@fortawesome/free-regular-svg-icons'
 import './Card.css'
 
 const Card = ({ post }) => {
@@ -19,7 +19,12 @@ const Card = ({ post }) => {
         <div className="card">
             <a href={post.url} target='_blank' rel="noreferrer">
                 <div className="body">
-                    <p><img src={timeIcon} alt='time-icon' />{timePassed.time} {timePassed.unit} ago by {post.author}</p>
+                    <p>
+                        <span className="time-icon">
+                            <FontAwesomeIcon icon={faClockFour} />
+                        </span>
+                        {timePassed.time} {timePassed.unit} ago by {post.author}
+                    </p>
                     <h1>{post.story_title}</h1>
                 </div>
             </a>
@@ -27,7 +32,9 @@ const Card = ({ post }) => {
 
             </div>
             <button onClick={() => handleLikeButton()}>
-                <img src={post.liked ? filledHeartIcon : heartIcon} alt='heart-icon' />
+                <div className='heart-icon'>
+                    <FontAwesomeIcon icon={post.liked ? faHeart : faHeartRegular} />
+                </div>
             </button>
         </div>
     )

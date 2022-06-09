@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import arrowUp from '../../Assets/angle-down-solid.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import './ScrollUpButton.css'
 
 const ScrollUpButton = () => {
@@ -25,7 +26,7 @@ const ScrollUpButton = () => {
             {
                 scrollUpButton &&
                 <button className='scroll-up' onClick={() => scrollUp()}>
-                    <img src={arrowUp} alt='arrowUp-icon' />
+                    <FontAwesomeIcon icon={faAngleUp} />
                 </button>
             }
         </>

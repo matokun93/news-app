@@ -19,7 +19,6 @@
 
 .nav-container img {
     width: clamp(120px, 20vw, 208px);
-    fill: aqua;
 }
 
 .theme-button {
@@ -28,10 +27,11 @@
     justify-content: flex-end;
 }
 
-.theme-button img {
+.theme-button .moon-icon {
     transition: all .2s;
     margin-right: clamp(6px, 1.2vw, 10px);
-    width: clamp(12px, 1.5vw, 18px);
+    font-size: clamp(12px, 1.5vw, 18px);
+    color: var(--clr-slider);
 }
 
 .slider-container {

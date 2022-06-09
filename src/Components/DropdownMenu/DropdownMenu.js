@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react'
 import { useOptions, DROPDOWN_OPTIONS } from '../../Contexts/OptionsContext'
 import useClickOutside from '../../CustomHooks/useClickOutside'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import './DropdownMenu.css'
-import arrowDown from '../../Assets/angle-down-solid.svg'
 
 const DropdownMenu = () => {
     const { query, changeQuery } = useOptions()
@@ -29,14 +30,14 @@ const DropdownMenu = () => {
                 {
                     query ?? 'Select your news'
                 }
-                <img src={arrowDown} alt="" />
+                <FontAwesomeIcon icon={faAngleDown} />
             </div>
             {
                 visibleDropdown
                     ? <ul className="body">
                         {DROPDOWN_OPTIONS.map(option =>
                             <li className="option" key={option.id} onClick={() => handleSelect(option.id)}>
-                                <img src={option.icon} alt="" />
+                                <img src={option.icon} alt="option-icon" />
                                 {option.name}
                             </li>
                         )}

@@ -52,6 +52,7 @@ code {
   --clr-slider: #3e3e3e;
   --clr-scroll-button: #ffffff;
   --clr-scroll-button-hover: #f9f9f9;
+  --clr-heart-icon: #e01d1d;
 }
 
 /* Dark colors */
@@ -74,8 +75,9 @@ code {
   --clr-font-active: #c9c9c9;
   --clr-shadows: #292929;
   --clr-slider: #bbbbbb;
-  --clr-scroll-button: #545454;
-  --clr-scroll-button-hover: #6c6c6c;
+  --clr-scroll-button: #3f3f3f;
+  --clr-scroll-button-hover: #606060;
+  --clr-heart-icon: #cacaca;
 }
 
 /* Animations */

@@ -41,8 +41,9 @@
     color: var(--clr-font-secondary);
 }
 
-.card p img {
-    width: 1rem;
+.card p .time-icon {
+    font-size: clamp(11px, 1.5vw, 15px);
+    color: var(--clr-font-secondary);
 }
 
 .card button {
@@ -53,8 +54,9 @@
     cursor: pointer;
 }
 
-.card button img {
-    width: clamp(17px, 1.5vw, 24px);
+.card button .heart-icon {
+    font-size: clamp(17px, 1.5vw, 24px);
+    color: var(--clr-heart-icon);
 }
 
 .card button:hover {
