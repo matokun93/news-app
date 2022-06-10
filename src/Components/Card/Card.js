@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { isEqual } from 'lodash'
+import { memo, useState } from 'react'
 import { usePosts } from '../../Contexts/PostsContext'
 import { TAB_2, useOptions } from '../../Contexts/OptionsContext'
 import useCalculateTime from '../../CustomHooks/useCalculateTime'
@@ -7,7 +8,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as faHeartRegular, faClockFour } from '@fortawesome/free-regular-svg-icons'
 import './Card.css'
 
-const Card = ({ post }) => {
+const Card = memo(({ post }) => {
     const { addFavePost, removeFavePost } = usePosts()
     const { timePassed } = useCalculateTime(post.created_at)
     const { selectedTab } = useOptions()
@@ -46,6 +47,6 @@ const Card = ({ post }) => {
             </button>
         </div>
     )
-}
+}, isEqual)
 
 export default Card

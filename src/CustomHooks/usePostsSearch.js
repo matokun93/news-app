@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 import { useOptions } from '../Contexts/OptionsContext'
 import useLocalStorage from './useLocalStorage'
 import axios from 'axios'
@@ -13,10 +13,10 @@ const usePostsSearch = () => {
 
     const filterPosts = (posts) => {
         let filteredPosts = posts.filter(post => post.story_title && post.author && post.story_url && post.created_at)
-        return filteredPosts
+        return checkLikedPosts(filteredPosts)
     }
 
-    const checkLikedPosts = useCallback((filteredPosts) => {
+    const checkLikedPosts = (filteredPosts) => {
         let checkedPosts = filteredPosts.map(post => {
             return {
                 objectID: post.objectID,
@@ -28,16 +28,13 @@ const usePostsSearch = () => {
             }
         })
         return checkedPosts
-    }, [])
+    }
 
     useEffect(() => {
-        console.log('entro al usefefct peque;o');
         setPosts([])
-        console.log('se seteo el posts en vacio');
     }, [query])
 
     useEffect(() => {
-        console.log('entro al useffect grande');
         setLoading(true)
         setError(false)
         let cancel
@@ -48,10 +45,8 @@ const usePostsSearch = () => {
             cancelToken: new axios.CancelToken(c => cancel = c)
         }).then(res => {
             let filteredPosts = filterPosts(res.data.hits)
-            let checkedPosts = checkLikedPosts(filteredPosts)
             setPosts(prevPosts => {
-                // return [...new Set([...prevPosts, ...checkedPosts])]
-                return [...prevPosts, ...checkedPosts]
+                return [...prevPosts, ...filteredPosts]
             })
             setHasMore(res.data.hits.length > 0)
             setLoading(false)
@@ -60,7 +55,6 @@ const usePostsSearch = () => {
             setError(true)
         })
         return () => cancel()
-        console.log('se busco la nueva data');
     }, [pageNumber, query])
 
     return { posts, setPosts, favePosts, setFavePosts, hasMore, loading, error, }
