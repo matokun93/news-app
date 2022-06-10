@@ -19,7 +19,7 @@ const LayoutPosts = () => {
             }
         })
         if (node) observer.current.observe(node)
-    }, [loading, hasMore])
+    }, [loading, hasMore, setPageNumber, pageNumber])
 
     return (
         <>
