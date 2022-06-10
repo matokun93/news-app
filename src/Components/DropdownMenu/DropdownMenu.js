@@ -27,9 +27,9 @@ const DropdownMenu = () => {
     return (
         <div className="dropdown-menu" ref={dropdownMenuRef}>
             <div className="header" onClick={() => toggleDropdown()}>
-                {
-                    query ?? 'Select your news'
-                }
+                {query === 'reactjs' ? <span>React </span> : null}
+                {query === 'angular' ? <span>Angular</span> : null}
+                {query === 'vuejs' ? <span>VueJs </span> : null}
                 <FontAwesomeIcon icon={faAngleDown} />
             </div>
             {

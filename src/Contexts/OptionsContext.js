@@ -32,7 +32,7 @@ export const DROPDOWN_OPTIONS = [
 
 export const OptionsProvider = ({ children }) => {
     const [pageNumber, setPageNumber] = useState(0)
-    const [query, setQuery] = useLocalStorage('query', null)
+    const [query, setQuery] = useLocalStorage('query', 'reactjs')
     const [selectedTab, setSelectedTab] = useLocalStorage('selectedTab', TAB_1)
 
     const changeTab = (tab) => {

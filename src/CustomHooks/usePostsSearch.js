@@ -55,6 +55,7 @@ const usePostsSearch = () => {
             setError(true)
         })
         return () => cancel()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pageNumber, query])
 
     return { posts, setPosts, favePosts, setFavePosts, hasMore, loading, error, }
